@@ -1,0 +1,55 @@
+---
+title: "Matrix Example"
+author: "Erica Dale"
+format: html
+editor: visual
+---
+
+# Leslie Matrix Example
+
+Model population changes
+
+```{r}
+
+# Could store vector of values separately and call into matrix
+# Create matrix
+insect_leslie <- matrix(c(0, 0, 600, 0.2, 0, 0, 0, .08, 0), 
+                        nrow = 3, ncol = 3, byrow = TRUE)
+insect_leslie
+
+
+```
+
+## Add initial conditions
+
+```{r}
+insect_y0 <- c(12000, 700, 500)
+
+
+```
+
+## Multiply matrices
+
+```{r}
+insect_y1 <- insect_leslie %*% insect_y0
+
+insect_y1
+```
+
+
+## Estimate life stage for year 2
+
+```{r}
+insect_y2 <- insect_leslie %*% insect_y1
+
+insect_y2
+```
+
+
+## Estimate life stage for year 3
+```{r}
+insect_y3 <- insect_leslie %*% insect_y2
+
+insect_y3
+```
+
